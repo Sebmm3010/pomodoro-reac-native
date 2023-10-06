@@ -12,11 +12,14 @@ export const Header = ({ currentTime, setCurrentTime, setTime }) => {
     <View style={styles.container}>
       {options.map((option, i) => (
         <TouchableOpacity
-          style={[styles.items, currentTime !== i && { borderColor: "transparent" }]}
+          style={[
+            styles.items,
+            currentTime !== i && { borderColor: "transparent" },
+          ]}
           onPress={() => handlePress(i)}
           key={option}
         >
-          <Text>{option}</Text>
+          <Text style={styles.text}>{option}</Text>
         </TouchableOpacity>
       ))}
     </View>
@@ -30,8 +33,15 @@ const styles = StyleSheet.create({
   },
   items: {
     width: "33%",
+    alignItems: "center",
     borderWidth: 3,
+    borderColor: "#eee",
     padding: 5,
-    textAlign: "center",
+    marginVertical: 20,
+    borderRadius: 3,
+  },
+  text: {
+    color: "#eee",
+    fontWeight: "bold",
   },
 });
